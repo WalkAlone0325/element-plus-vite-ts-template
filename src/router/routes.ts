@@ -12,10 +12,10 @@ export const routes: RouteRecordRaw[] = [
     name: 'root',
     component: PageLayout,
     children: appRoutes
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'notFound',
+    component: () => import('@/views/not-found/index.vue')
   }
-  // {
-  //   path: '/:pathMatch(.*)*',
-  //   name: 'notFound',
-  //   component: () => import('@/views/not-found/index.vue')
-  // }
 ]
