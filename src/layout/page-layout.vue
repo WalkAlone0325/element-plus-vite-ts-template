@@ -21,7 +21,7 @@ const isHeaderFixed = ref(false)
       </el-scrollbar>
 
       <template v-else>
-        <HeaderBar :is-collapse="isCollapse" />
+        <NavBar :is-collapse="isCollapse" />
         <AppMain />
       </template>
     </el-container>
