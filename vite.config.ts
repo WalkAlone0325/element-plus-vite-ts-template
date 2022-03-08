@@ -12,6 +12,7 @@ export default defineConfig({
     vue(),
     vueJsx(),
     AutoImport({
+      // , '@vueuse/core', '@vueuse/head'
       imports: ['vue', 'vue-router', 'pinia'],
       resolvers: [ElementPlusResolver()],
       dts: resolve(__dirname, './src/auto-import.d.ts')

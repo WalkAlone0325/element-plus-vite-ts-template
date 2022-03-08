@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import SideBar from './components/SideBar.vue'
-import HeaderBar from './components/HeaderBar.vue'
+import NavBar from './components/NavBar.vue'
 import AppMain from './components/AppMain.vue'
+import { useAppStore } from '@/store'
 
-// const settingStore = useSetting()
-// const { isCollapse } = storeToRefs(settingStore)
+const appStore = useAppStore()
+const { isCollapse } = storeToRefs(appStore)
 
-const isCollapse = ref(true)
 const isHeaderFixed = ref(false)
 </script>
 
@@ -16,12 +16,12 @@ const isHeaderFixed = ref(false)
 
     <el-container direction="vertical">
       <el-scrollbar v-if="isHeaderFixed" style="width: 100%">
-        <HeaderBar />
+        <NavBar :is-collapse="isCollapse" />
         <AppMain />
       </el-scrollbar>
 
       <template v-else>
-        <HeaderBar />
+        <HeaderBar :is-collapse="isCollapse" />
         <AppMain />
       </template>
     </el-container>

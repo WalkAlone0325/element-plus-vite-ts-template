@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { MenuFoldOutlined } from '@vicons/antd'
 import { Icon } from '@vicons/utils'
 
 withDefaults(
@@ -9,16 +8,17 @@ withDefaults(
     size?: string | number | undefined
   }>(),
   {
-    size: 36,
-    color: '#000',
+    size: 20,
+    color: '#000000',
     tag: 'span'
   }
 )
 </script>
 
 <template>
-  <Icon :size="size" :color="color" :tag="tag">
-    <MenuFoldOutlined />
-    <slot></slot>
-  </Icon>
+  <div>
+    <Icon :size="size" :color="color" :tag="tag">
+      <slot></slot>
+    </Icon>
+  </div>
 </template>

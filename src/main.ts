@@ -5,9 +5,12 @@ import '@/styles/index.scss'
 
 import { setupRouter } from '@/router'
 import { setupStore } from '@/store'
+import { setupIcons } from '@/components/RenderIcon'
 
 function bootstrap() {
   const app = createApp(App)
+
+  setupIcons(app)
 
   // store
   setupStore(app)
