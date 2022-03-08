@@ -4,7 +4,7 @@ export default {
   path: 'dashboard',
   name: 'dashboard',
   component: () => import('@/views/dashboard/index.vue'),
-  meta: { locale: 'dashboard', requiresAuth: true, icon: 'DataAnalysis' },
+  meta: { locale: 'dashboard', requiresAuth: true, icon: 'DashboardFilled' },
   children: [
     {
       path: 'workplace',

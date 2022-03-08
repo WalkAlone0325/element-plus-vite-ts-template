@@ -5,7 +5,12 @@ import {
   GithubFilled,
   FullscreenExitOutlined,
   FullscreenOutlined,
-  ProfileOutlined
+  ProfileOutlined,
+  DashboardFilled,
+  SettingFilled,
+  AppstoreFilled,
+  ClusterOutlined,
+  UserOutlined
 } from '@vicons/antd'
 import type { App } from 'vue'
 
@@ -16,7 +21,12 @@ const IconsComponent = [
   GithubFilled,
   FullscreenExitOutlined,
   FullscreenOutlined,
-  ProfileOutlined
+  ProfileOutlined,
+  DashboardFilled,
+  SettingFilled,
+  AppstoreFilled,
+  ClusterOutlined,
+  UserOutlined
 ]
 
 export function setupIcons(app: App<Element>) {

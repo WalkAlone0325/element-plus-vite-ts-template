@@ -32,7 +32,7 @@ defineProps({
 .logo-container {
   width: 100%;
   height: 50px;
-  border-bottom: var(--el-border-base);
+  // border-bottom: var(--el-border-base);
 
   .logo-content {
     height: 100%;

@@ -10,7 +10,7 @@ defineProps({
 <template>
   <el-aside
     :width="isCollapse ? '64px' : '200px'"
-    style="background-color: rgb(48, 65, 86)"
+    style="background-color: #545c64"
   >
     <el-scrollbar>
       <Logo :is-collapse="isCollapse" />

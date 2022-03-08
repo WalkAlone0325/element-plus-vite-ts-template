@@ -7,7 +7,7 @@ export default {
   meta: {
     locale: 'menu.profile',
     requiresAuth: true,
-    icon: 'Promotion'
+    icon: 'UserOutlined'
   },
   children: [
     {

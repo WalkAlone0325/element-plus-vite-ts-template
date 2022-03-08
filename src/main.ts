@@ -3,13 +3,14 @@ import App from './App.vue'
 // global css
 import '@/styles/index.scss'
 
-import { setupRouter } from '@/router'
+import { router, setupRouter, setupRouterGuard } from '@/router'
 import { setupStore } from '@/store'
 import { setupIcons } from '@/components/RenderIcon'
 
 function bootstrap() {
   const app = createApp(App)
 
+  // icons
   setupIcons(app)
 
   // store
@@ -17,6 +18,9 @@ function bootstrap() {
 
   // router
   setupRouter(app)
+
+  // router guard
+  setupRouterGuard(router)
 
   // mount
   app.mount('#app')
