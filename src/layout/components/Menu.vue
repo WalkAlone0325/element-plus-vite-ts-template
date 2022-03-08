@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import {
-  Location,
-  Document,
-  Menu as IconMenu,
-  Setting
-} from '@element-plus/icons-vue'
-
 defineProps({
   isCollapse: Boolean
 })
