@@ -36,8 +36,9 @@ h7 {
 
   .el-aside {
     min-width: 64px;
+    max-width: 200px;
     height: 100%;
-    transition: all 0.3s;
+    transition: width 0.38s;
 
     .el-scrollbar {
       height: calc(100% - 50px) !important;
@@ -46,6 +47,7 @@ h7 {
 
   .el-menu {
     min-width: 64px;
+    max-width: 200px;
     min-height: calc(100% - 50px) !important;
     border-right: none !important;
 
