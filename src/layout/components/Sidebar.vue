@@ -12,9 +12,12 @@ defineProps({
     :width="isCollapse ? '64px' : '200px'"
     style="background-color: #545c64"
   >
+    <Logo :is-collapse="isCollapse" />
     <el-scrollbar>
-      <Logo :is-collapse="isCollapse" />
-      <Menu :is-collapse="isCollapse" />
+      <Menu
+        :is-collapse="isCollapse"
+        :style="{ width: isCollapse ? '64px' : '200px' }"
+      />
     </el-scrollbar>
   </el-aside>
 </template>

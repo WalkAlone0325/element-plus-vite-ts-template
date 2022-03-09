@@ -1,11 +1,10 @@
-import type { Component } from 'vue'
 import 'vue-router'
 
 declare module 'vue-router' {
   interface RouteMeta {
     role?: string[]
     requiresAuth?: boolean
-    icon?: Component | string
+    icon?: string
     locale?: string
     title?: string
     // menu select key

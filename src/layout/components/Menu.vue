@@ -1,8 +1,6 @@
 <script lang="tsx">
 import usePermission from '@/hooks/permission'
 import { routes } from '@/router/routes'
-import { useAppStore } from '@/store'
-import { compile } from 'vue'
 import type { RouteRecordNormalized, RouteRecordRaw } from 'vue-router'
 
 export default defineComponent({
@@ -10,7 +8,6 @@ export default defineComponent({
     isCollapse: Boolean
   },
   setup(props) {
-    const appStore = useAppStore()
     const permission = usePermission()
     const route = useRoute()
     const router = useRouter()
@@ -56,27 +53,41 @@ export default defineComponent({
         if (_route) {
           _route.forEach((element) => {
             if (!permission.accessRouter(element)) return
-            const r = (
-              <el-sub-menu
-                v-slots={{
-                  title: () =>
-                    h(
-                      compile(
-                        `${element?.meta?.icon}${element?.meta?.locale || ''}`
-                      )
-                    )
-                }}
-              >
-                {element.children?.map((elem) => {
-                  return (
-                    <el-menu-item>
-                      {elem.meta?.locale}
-                      {travel(elem.children ?? [])}
-                    </el-menu-item>
-                  )
-                })}
-              </el-sub-menu>
+
+            const icon = element.meta?.icon && (
+              <el-icon>{h(resolveComponent(element.meta?.icon))}</el-icon>
             )
+
+            let r
+            if (element.children?.length) {
+              r = (
+                <el-sub-menu
+                  key={element.name}
+                  index={element.path}
+                  v-slots={{
+                    title: () => (
+                      <>
+                        {icon}
+                        <span>{element.meta?.title}</span>
+                      </>
+                    )
+                  }}
+                >
+                  {travel(element.children)}
+                </el-sub-menu>
+              )
+            } else {
+              r = (
+                <el-menu-item
+                  key={element.name}
+                  index={element.name}
+                  route={element}
+                >
+                  {icon}
+                  <span>{element.meta?.title}</span>
+                </el-menu-item>
+              )
+            }
             nodes.push(r as never)
           })
         }
@@ -85,9 +96,23 @@ export default defineComponent({
       return travel(menuTree.value)
     }
 
+    // active route
+    const activeRoute = ref('')
+    watch(
+      route,
+      (newVal) => {
+        if (newVal.meta.requiresAuth) {
+          const lastLen = newVal.matched.length - 1
+          const key = newVal.matched[lastLen].name as string
+          activeRoute.value = key
+        }
+      },
+      { immediate: true }
+    )
+
     return () => (
       <el-menu
-        default-active="2"
+        default-active={activeRoute.value}
         collapse={props.isCollapse}
         active-text-color="#ffd04b"
         background-color="#545c64"

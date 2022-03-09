@@ -35,14 +35,23 @@ h7 {
   height: 100%;
 
   .el-aside {
+    min-width: 64px;
     height: 100%;
-    transition: width var(--el-transition-duration);
+    transition: all 0.3s;
+
+    .el-scrollbar {
+      height: calc(100% - 50px) !important;
+    }
   }
 
   .el-menu {
-    width: 200px;
-    height: 100%;
+    min-width: 64px;
+    min-height: calc(100% - 50px) !important;
     border-right: none !important;
+
+    &:not(.el-menu--collapse) {
+      width: 200px;
+    }
   }
 
   .el-header {
